@@ -247,7 +247,7 @@
       {{-- seperator  --}}
       <li role="separator" class="dropdown-divider mt-5 mb-3 border-gray-700"></li>
       <li class="nav-item">
-        <a href="/documentation/getting-started/overview/index.html" target="_blank"
+        <a href="#"
           class="nav-link d-flex align-items-center">
           <livewire:logout />
         </a>
