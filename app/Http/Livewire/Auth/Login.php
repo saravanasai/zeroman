@@ -23,8 +23,14 @@ class Login extends Component
         if (auth()->user()) {
             return redirect()->intended('/dashboard');
         }
+
+        if (config('app.env') == "production") {
+            return;
+        }
+
+
         $this->fill([
-            'email' => 'admin@volt.com',
+            'email' => 'admin@zerocode.com',
             'password' => 'secret',
         ]);
     }
