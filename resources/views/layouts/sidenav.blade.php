@@ -71,11 +71,14 @@
                 <span class="sidebar-text">Profile</span>
               </a>
             </li>
+            @if (auth()->user()->is_admin)
             <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
-              <a href="/users" class="nav-link">
-                <span class="sidebar-text">User management</span>
-              </a>
-            </li>
+                <a href="/users" class="nav-link">
+                  <span class="sidebar-text">User management</span>
+                </a>
+              </li>
+            @endif
+
           </ul>
         </div>
       </li>
@@ -126,71 +129,7 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item">
-        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-          data-bs-target="#submenu-pages">
-          <span>
-            <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
-                  clip-rule="evenodd"></path>
-                <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
-              </svg></span>
-            <span class="sidebar-text">Page examples</span>
-          </span>
-          <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clip-rule="evenodd"></path>
-            </svg></span>
-        </span>
-        <div class="multi-level collapse" role="list" id="submenu-pages" aria-expanded="false">
-          <ul class="flex-column nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('profile-example') }}">
-                <span class="sidebar-text">Profile</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('login-example') }}">
-                <span class="sidebar-text">Sign In</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('register-example') }}">
-                <span class="sidebar-text">Sign Up</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('forgot-password-example') }}">
-                <span class="sidebar-text">Forgot password</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/reset-password-example">
-                <span class="sidebar-text">Reset password</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/lock">
-                <span class="sidebar-text">Lock</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/404">
-                <span class="sidebar-text">404 Not Found</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/500">
-                <span class="sidebar-text">500 Not Found</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
+
       <li class="nav-item">
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
           data-bs-target="#submenu-components">
@@ -242,15 +181,6 @@
             </li>
           </ul>
         </div>
-      </li>
-
-      {{-- seperator  --}}
-      <li role="separator" class="dropdown-divider mt-5 mb-3 border-gray-700"></li>
-      <li class="nav-item">
-        <a href="#"
-          class="nav-link d-flex align-items-center">
-          <livewire:logout />
-        </a>
       </li>
     </ul>
   </div>

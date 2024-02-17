@@ -1,5 +1,4 @@
-<x-layouts.base>
-
+<x-layouts.base >
 
     @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'users', 'bootstrap-tables', 'transactions',
     'buttons',
