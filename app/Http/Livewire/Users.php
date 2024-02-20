@@ -31,6 +31,7 @@ class Users extends Component
                 return $q->where('first_name', 'like', '%'.$this->search.'%')
                     ->orWhere('last_name', 'like', '%'.$this->search.'%');
             })
+            ->orderBy('id','DESC')
             ->paginate(request()->get('show') ?? 10);
 
         return view('livewire.users',["users"=>$users]);

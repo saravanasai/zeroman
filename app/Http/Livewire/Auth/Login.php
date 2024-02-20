@@ -3,11 +3,12 @@
 namespace App\Http\Livewire\Auth;
 
 use App\Models\User;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class Login extends Component
 {
-
+    use LivewireAlert;
     public $email = '';
     public $password = '';
     public $remember_me = false;
@@ -41,6 +42,12 @@ class Login extends Component
         if (auth()->attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
             $user = User::where(['email' => $this->email])->first();
             auth()->login($user, $this->remember_me);
+
+            if (!auth()->user()->is_active) {
+                $this->alert('info', 'Account has been In active contact admin');
+                return;
+            }
+
             return redirect()->intended('/dashboard');
         } else {
             return $this->addError('email', trans('auth.failed'));

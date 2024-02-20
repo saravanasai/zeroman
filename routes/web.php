@@ -24,6 +24,7 @@ use App\Http\Livewire\Transactions;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ResetPasswordExample;
 use App\Http\Livewire\UpgradeToPro;
+use App\Http\Livewire\UserCreateComponent;
 use App\Http\Livewire\Users;
 
 /*
@@ -56,6 +57,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('isAdmin')->group(function () {
         Route::get('/users', Users::class)->name('users');
+        Route::get('/users/create',UserCreateComponent::class)->name('users.create');
     });
 
     Route::get('/profile', Profile::class)->name('profile');
