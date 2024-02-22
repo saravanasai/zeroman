@@ -79,7 +79,7 @@
                             </button>
                                 @if(auth()->user()->id != $user->id)
                                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <a class="dropdown-item d-flex align-items-center" href="{{route('users.show',[$user->id])}}">
                                         <span class="fas fa-user-shield me-2"></span>
                                         View Details
                                     </a>

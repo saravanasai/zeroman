@@ -6,6 +6,7 @@
             'profile-example',
             'users',
             'users.create',
+            'users.show',
             'bootstrap-tables',
             'transactions',
             'buttons',

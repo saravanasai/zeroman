@@ -21,8 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->tinyInteger('is_admin')->default(1)->comment('1 means admin 0 means users');
+            $table->tinyInteger('is_active')->default(1)->comment('1 means active 0 means inactive');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken()->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,17 +15,12 @@ use App\Http\Livewire\Lock;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Auth\Register;
-use App\Http\Livewire\ForgotPasswordExample;
-use App\Http\Livewire\Index;
-use App\Http\Livewire\LoginExample;
-use App\Http\Livewire\ProfileExample;
-use App\Http\Livewire\RegisterExample;
 use App\Http\Livewire\Transactions;
+use App\Http\Livewire\UserUpdateComponent;
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\ResetPasswordExample;
-use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\UserCreateComponent;
 use App\Http\Livewire\Users;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('isAdmin')->group(function () {
         Route::get('/users', Users::class)->name('users');
         Route::get('/users/create',UserCreateComponent::class)->name('users.create');
+        Route::get('/users/show/{id}',UserUpdateComponent::class)->name('users.show');
     });
 
     Route::get('/profile', Profile::class)->name('profile');
