@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\BootstrapTables;
+use App\Http\Livewire\ClientHomeComponent;
 use App\Http\Livewire\Components\Buttons;
 use App\Http\Livewire\Components\Forms;
 use App\Http\Livewire\Components\Modals;
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
 
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/client', ClientHomeComponent::class)->name('client');
     Route::get('/transactions', Transactions::class)->name('transactions');
     Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/lock', Lock::class)->name('lock');
@@ -70,4 +72,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+
+
 });

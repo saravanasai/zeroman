@@ -4,6 +4,7 @@
             'dashboard',
             'profile',
             'profile-example',
+            'client',
             'users',
             'users.create',
             'users.show',
