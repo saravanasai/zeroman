@@ -61,7 +61,8 @@
                             </div>
                         </div>
                         <div class="mt-3 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2">Create</button>
+                            <a href="{{route('users')}}" class="btn btn-danger mt-2 animate-up-2 mx-2">back</a>
+                            <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2 mx-2">Create</button>
                         </div>
                     </form>
                 </div>

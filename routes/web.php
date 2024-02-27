@@ -35,7 +35,10 @@ use App\Http\Livewire\Users;
 
 Route::redirect('/', '/login');
 
-Route::get('/register', Register::class)->name('register');
+if (cache('setting' . App\Enums\SystemSettingEnum::CAN_USER_REGISTER->name)) {
+    Route::get('/register', Register::class)->name('register');
+}
+
 
 Route::get('/login', Login::class)->name('login');
 
@@ -52,8 +55,8 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('isAdmin')->group(function () {
         Route::get('/users', Users::class)->name('users');
-        Route::get('/users/create',UserCreateComponent::class)->name('users.create');
-        Route::get('/users/show/{id}',UserUpdateComponent::class)->name('users.show');
+        Route::get('/users/create', UserCreateComponent::class)->name('users.create');
+        Route::get('/users/show/{id}', UserUpdateComponent::class)->name('users.show');
     });
 
     Route::get('/profile', Profile::class)->name('profile');

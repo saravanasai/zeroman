@@ -10,9 +10,10 @@
                 <div class="col-12 d-flex align-items-center justify-content-center">
                     <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                         <div class="text-center text-md-center mb-4 mt-md-0">
-                            <h1 class="mb-3 h3">Zero-Man Admin</h1>
+                            <h1 class="mb-3 h3">{{ cache('setting' . App\Enums\SystemSettingEnum::COMPANY_NAME->name) }}
+                                Admin</h1>
                             <p class="mb-0">
-                                <p class="mb-0"></p>
+                            <p class="mb-0"></p>
                             </p>
                         </div>
                         <form wire:submit.prevent="login" action="#" class="mt-4" method="POST">
@@ -31,7 +32,8 @@
                                     <input wire:model="email" type="email" class="form-control"
                                         placeholder="example@company.com" id="email" autofocus required>
                                 </div>
-                                @error('email') <div wire:key="form" class="invalid-feedback"> {{$message}} </div>
+                                @error('email')
+                                    <div wire:key="form" class="invalid-feedback"> {{ $message }} </div>
                                 @enderror
                             </div>
                             <!-- End of Form -->
@@ -50,7 +52,9 @@
                                         <input wire:model.lazy="password" type="password" placeholder="Password"
                                             class="form-control" id="password" required>
                                     </div>
-                                    @error('password') <div class="invalid-feedback"> {{ $message }} </div> @enderror
+                                    @error('password')
+                                        <div class="invalid-feedback"> {{ $message }} </div>
+                                    @enderror
                                 </div>
                                 <!-- End of Form -->
                                 <div class="d-flex justify-content-between align-items-top mb-4">
@@ -73,8 +77,9 @@
                             <span class="fw-normal">Support us</span>
                         </div>
                         <div class="d-flex justify-content-center my-4">
-                            <a href="https://github.com/saravanasai" class="btn btn-icon-only btn-pill btn-outline-gray-500"
-                                aria-label="github button" title="github button">
+                            <a href="https://github.com/saravanasai"
+                                class="btn btn-icon-only btn-pill btn-outline-gray-500" aria-label="github button"
+                                title="github button">
                                 <svg class="icon icon-xxs" aria-hidden="true" focusable="false" data-prefix="fab"
                                     data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 496 512">
@@ -84,12 +89,15 @@
                                 </svg>
                             </a>
                         </div>
-                        <div class="d-flex justify-content-center align-items-center mt-4">
-                            <span class="fw-normal">
-                                Not registered?
-                                <a href="{{ route('register') }}" class="fw-bold">Create account</a>
-                            </span>
-                        </div>
+
+                        @if (cache('setting' . App\Enums\SystemSettingEnum::CAN_USER_REGISTER->name))
+                            <div class="d-flex justify-content-center align-items-center mt-4">
+                                <span class="fw-normal">
+                                    Not registered?
+                                    <a href="{{ route('register') }}" class="fw-bold">Create account</a>
+                                </span>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
