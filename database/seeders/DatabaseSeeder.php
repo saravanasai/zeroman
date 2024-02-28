@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             SystemSettingSeeder::class,
+            EnvironmentSeeder::class,
+            EnvironmentVariablesSeeder::class
         ]);
     }
 }

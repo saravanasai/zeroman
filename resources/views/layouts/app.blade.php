@@ -5,6 +5,7 @@
             'profile',
             'profile-example',
             'client',
+            'environment',
             'users',
             'users.create',
             'users.show',
