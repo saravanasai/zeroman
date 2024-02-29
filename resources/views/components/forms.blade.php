@@ -25,7 +25,7 @@
 <div class="row">
     <div class="col-12 mb-4">
         <div class="card border-0 shadow components-section">
-            <div class="card-body">     
+            <div class="card-body">
                 <div class="row mb-4">
                     <div class="col-lg-4 col-sm-6">
                         <!-- Form -->
@@ -40,7 +40,7 @@
                             <label for="exampleInputIconLeft">Icon Left</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>  
+                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                                 </span>
                                 <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search">
                             </div>
@@ -52,7 +52,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" id="exampleInputIconRight" placeholder="Search" aria-label="Search">
                                 <span class="input-group-text" id="basic-addon2">
-                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>  
+                                    <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                                 </span>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                             <input type="text" class="form-control is-valid" id="firstName" value="Mark" required>
                             <div class="valid-feedback">
                                 Looks good!
-                            </div>                
+                            </div>
                         </div>
                         <!-- End of Form -->
                     </div>
@@ -92,7 +92,7 @@
                             <input type="text" class="form-control is-invalid" id="usernameValidate" required>
                             <div class="invalid-feedback">
                                 Please choose a username.
-                            </div>               
+                            </div>
                         </div>
                         <!-- End of Form -->
                     </div>
@@ -103,7 +103,7 @@
                                 <span class="input-group-text">
                                     <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                                 </span>
-                                <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>                                               
+                                <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>
                             </div>
                         </div>
                         <!-- Form -->

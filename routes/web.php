@@ -8,6 +8,7 @@ use App\Http\Livewire\Components\Modals;
 use App\Http\Livewire\Components\Notifications;
 use App\Http\Livewire\Components\Typography;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Environment\EnvironmentShowUpdateComponent;
 use App\Http\Livewire\Err404;
 use App\Http\Livewire\Err500;
 use App\Http\Livewire\ResetPassword;
@@ -64,7 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('environment')->group(function () {
         Route::get('/', EnvironmentListComponent::class)->name('environment');
         Route::get('/environment/create', UserCreateComponent::class)->name('environment.create');
-        Route::get('/environment/show/{id}', UserUpdateComponent::class)->name('environment.show');
+        Route::get('/{id}', EnvironmentShowUpdateComponent::class)->name('environment.show');
     });
 
 
