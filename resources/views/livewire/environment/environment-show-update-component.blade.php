@@ -40,7 +40,7 @@
                                         name="variables[{{ $key }}][value]">
                                 </td>
                                 <td>
-                                    <button wire:click="handleRemoveRow({{$key}})" type="button" class="btn btn-primary" type="button">Remove</button>
+                                    <button  {{ $loop->first ? 'disabled' : '' }} wire:click="handleRemoveRow({{$key}})" type="button" class="btn btn-primary" type="button">Remove</button>
                                 </td>
                             </tr>
                         @endforeach

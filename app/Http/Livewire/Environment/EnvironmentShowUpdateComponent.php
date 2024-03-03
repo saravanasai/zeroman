@@ -13,13 +13,18 @@ class EnvironmentShowUpdateComponent extends Component
     use LivewireAlert;
     public $environment;
 
-    public array $variables = [[]];
+    public array $variables = [];
 
     public function mount($id)
     {
-        $this->environment = Environment::query()->where('id', $id)->first();
+        $this->environment = Environment::query()
+            ->where('id', $id)
+            ->first();
 
-        $vars = EnvironmentVariables::query()->select(['id', 'key', 'value'])->where('environment_id', $id)->get();
+        $vars = EnvironmentVariables::query()
+            ->select(['id', 'key', 'value'])
+            ->where('environment_id', $id)
+            ->get();
 
         foreach ($vars as $key => $value) {
             $this->variables[$key]['key'] = $value->key;
@@ -31,6 +36,7 @@ class EnvironmentShowUpdateComponent extends Component
     public function handleRemoveRow($index)
     {
         $isExistingId = @$this->variables[$index]['id'];
+
         if ($isExistingId) {
             EnvironmentVariables::destroy($isExistingId);
         }

@@ -7,6 +7,7 @@
             'client',
             'environment',
             'environment.show',
+            'environment.create',
             'users',
             'users.create',
             'users.show',

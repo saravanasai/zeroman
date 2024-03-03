@@ -13,6 +13,8 @@ class Environment extends Model
     use HasFactory,SoftDeletes;
 
 
+    protected $guarded = [];
+
     public function user(): HasOne
     {
         return $this->hasOne(User::class, 'id', 'user_id');

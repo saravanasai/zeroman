@@ -17,6 +17,7 @@ use App\Http\Livewire\Lock;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Environment\CreateEnviromentComponent;
 use App\Http\Livewire\Environment\EnvironmentListComponent;
 use App\Http\Livewire\Transactions;
 use App\Http\Livewire\UserUpdateComponent;
@@ -64,7 +65,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('environment')->group(function () {
         Route::get('/', EnvironmentListComponent::class)->name('environment');
-        Route::get('/environment/create', UserCreateComponent::class)->name('environment.create');
+        Route::get('/create', CreateEnviromentComponent::class)->name('environment.create');
         Route::get('/{id}', EnvironmentShowUpdateComponent::class)->name('environment.show');
     });
 
