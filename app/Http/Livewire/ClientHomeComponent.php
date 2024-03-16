@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Environment;
+use App\Models\EnvironmentVariables;
 use Illuminate\Support\Facades\Http;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -11,10 +13,13 @@ class ClientHomeComponent extends Component
     use LivewireAlert;
     public array $queryParams = [];
     public string $requestMethod = "GET";
+    public string $choosedEnvironmentId = "";
+
+    public array $environmentVariables = [];
 
 
 
-    public string $url = "http://jsonplaceholder.typicode.com/todos?id=45";
+    public string $url = "{{baseUrl}}/todos?id={{address}}";
     public $requestResponse = [];
 
     public string $queryStringbuilder = "";
@@ -22,6 +27,7 @@ class ClientHomeComponent extends Component
     public function mount()
     {
         $this->loadInitialValues();
+        // $this->updatedUrl();
     }
 
 
@@ -45,8 +51,22 @@ class ClientHomeComponent extends Component
         $this->updatedQueryParams();
     }
 
+
+    protected function updatedChoosedEnvironmentId()
+    {
+
+        $choosedEnv = Environment::find($this->choosedEnvironmentId)
+            ->load('variables');
+
+        foreach ($choosedEnv->variables as  $value) {
+            $this->environmentVariables[$value->key] = $value->value;
+        }
+    }
     protected function updatedUrl()
     {
+
+
+
         $tempUrl = explode("?", $this->url);
 
         $tempQueryUrl = explode("&", @$tempUrl[1] ?? "");
@@ -83,19 +103,40 @@ class ClientHomeComponent extends Component
         $this->url =  $temp[0]  . $this->queryStringbuilder;
     }
 
+
+    public function compileParameterNames($url)
+    {
+        preg_match_all('/\{{(.*?)\}}/',  $url, $matches);
+
+        return array_map(fn ($m) => trim($m, '?'), $matches[1]);
+    }
+
     public function handleRequest()
     {
+        $url =  $this->url;
 
+        $stripedValues = $this->compileParameterNames($url);
+
+        $updatedUrl = $url;
+
+        foreach ($stripedValues as $x) {
+            $updatedUrl = str_replace("{{" . $x . "}}", $this->environmentVariables[$x], $updatedUrl);
+        }
+
+        // dd($updatedUrl);
         if ($this->requestMethod === "") {
             $this->alert('error', 'Please choose a request method');
             return;
         }
 
+        if ($this->requestMethod != "GET") {
+            $this->alert('info', 'These feature will be available soon');
+        }
+
         if ($this->requestMethod === "GET") {
 
             $response = Http::acceptJson()
-                ->get($this->url);
-
+                ->get($updatedUrl);
 
             if ($response->successful()) {
                 $this->requestResponse = $response->json();
@@ -103,8 +144,11 @@ class ClientHomeComponent extends Component
             }
         }
     }
+
+
     public function render()
     {
-        return view('livewire.client-home-component');
+        $envrionments = Environment::query()->OwnEnvironments()->get();
+        return view('livewire.client-home-component', compact('envrionments'));
     }
 }

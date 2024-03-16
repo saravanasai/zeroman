@@ -5,7 +5,7 @@
             <div class="card border-0 shadow components-section">
                 <div class="card-body">
                     <div class="row mb-1">
-                        <div class="col-lg-2 col-sm-6 mt-2">
+                        <div class="col-lg-1 col-sm-6 mt-2">
                             <div class="mb-4">
                                 <select wire:model="requestMethod" class="form-select" id="country" aria-label="Method">
                                     <option selected>Method</option>
@@ -15,7 +15,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-9 col-sm-6 mt-2">
+                        <div class="col-lg-8 col-sm-6 mt-2">
                             <div class="mb-4">
                                 <input wire:model="url" type="text" class="form-control" id="url"
                                     placeholder="http://example.com/">
@@ -30,6 +30,17 @@
                                         ...
                                     </span>
                                 </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-6 mt-2">
+                            <div class="mb-4">
+                                <select wire:model="choosedEnvironmentId" class="form-select" id="choosed_environment" aria-label="Method">
+                                    <option value="0">Environment</option>
+                                    @foreach ($envrionments as $key => $environment)
+                                    <option value="{{ $environment->id}}">{{$environment->name}}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
                         </div>
                     </div>
